@@ -137,15 +137,15 @@ def update(request):
     
             if(form.is_valid):
                 form.save()
-                return redirect('/login/')
+                return HttpResponseRedirect(reverse('register:login'))
             else:
                 messages.info(request,"invalid  field")
-                return redirect('/update/')
+                return HttpResponseRedirect(reverse('register:update'))
         
         else:
 
             messages.info(request,"invalid incharge field")
-            return redirect('/update/')
+            return HttpResponseRedirect(reverse('register:update'))
             
         
         
@@ -162,4 +162,4 @@ def real_delete(request):
     current_user= request.user
     u=User.objects.get(username=current_user)
     u.delete()
-    return HttpResponseRedirect(reverse(''))
+    return HttpResponseRedirect(reverse('register:home'))
