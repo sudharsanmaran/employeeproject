@@ -1,5 +1,5 @@
 
-from django.db import models
+
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -30,6 +30,6 @@ class profile(abstractclass):
     empCode= models.CharField(max_length=10,null=True,blank=True)
     phoneNo= models.CharField(max_length=15,null=True,blank=True)
     position= models.CharField(max_length=20, choices=POSITION_TYPE,null=True,blank=True)
-    # to encrypte name field
+    # to decrypte name field
     def __str__(self):
         return self.name

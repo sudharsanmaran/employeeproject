@@ -1,8 +1,11 @@
 
 from urllib import request
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User, auth
+from django.urls import reverse
+
 from register.models import profile
 from .forms import EmployeeForm
 
@@ -54,7 +57,7 @@ def login(request):
             messages.info(request,"invalid credentials")
             return redirect('/login/')
     else:
-        return render(request,"register/login.html")
+        return render(request,"register/login.html")#,{"name":"sudha"})
 
 def logout(request):
     auth.logout(request)
@@ -159,4 +162,4 @@ def real_delete(request):
     current_user= request.user
     u=User.objects.get(username=current_user)
     u.delete()
-    return redirect('/') 
+    return HttpResponseRedirect(reverse(''))

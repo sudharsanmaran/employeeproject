@@ -1,6 +1,7 @@
 {% extends "register/base.html" %}
 
 {% block content %}
+{#    <h2>{{ name }}</h2>#}
     <form action="" method="POST" autocomplete="off">
         {%csrf_token%}
         <input type="text" name="username" placeholder="username"><br><br>
